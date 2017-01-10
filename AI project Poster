@@ -1,0 +1,115 @@
+AI project Poster
+
+
+1. Task Definition with the example
+		 To develop an advanced real world system for solving mathematics problems by focusing on studying and experimenting with the different techniques discussed in various papers.
+	For example, You can ask our model the following question:
+	“Jack ate 10 apples and gave 10 apples to Jill. How many apples did Jack have?”
+	The model will give output : 20
+	An another question could be: 
+	“ There were 100 trees in the garden. 10 trees fell down. How many trees are there now in the garden?”
+	The result will be 90
+
+2. Motivation
+
+	To prepare a child for future complex algorithms, it is important to teach him the basics of mathematics and language. Similarly, to create an high level AI agent which can solve bigger problems or improve the search engines, it is necessary to start with the basics. A 4th grade arithmetic question involves simple equations and the english used is comparatively less ambiguous. An advanced question answering system can help students to study the step by step solving of different problems and also greatly increase the accuracy of search engine results.
+
+3. A list of your key contributions
+
+	As part of this project we tried to apply the classifiers and POS tagging to solve arithmetic word problems. 
+		Model 1 - Logistic Regression and POS tagging : Classify data into positive or negative problems, and perform operations based on this classification.
+		Model 2 - Slight variation in Model 1: Added a filtering step to Model 1. Use of POS tagging to classify data.
+		Model 3 - A brute force approach: Used individual sentences to classify the verbs into three classes: assign, transfer positive, and transfer 	negative. Classifier is only used to create a list of verbs with their respective classification. Test problem is scanned for verbs and solved using this list.
+		Model 4 - Recursive brute force approach : The classifier is now also used to predict the sentences in test problem into four classes: assign, transfer positive, transfer negative and final. If there are multiple sentences in the problem, then it will take one at a time and recursively apply brute force till answer is obtained.
+
+4. A description of the systems you have implemented.
+	Model 1 - Logistic Regression and POS tagging : 
+		Before starting with NLP directly, we thought of first analyzing what might a 4th grade student or for that matter we as adults think when given a simple word problem. We generally observe the quantities given and try to figure out what to do with these numbers: add them or subtract them. This is the exact observation that we make our classifier learn so that we know whether to add the cardinals or subtract them.
+	Model 2 - Slight variation in Model 1:
+		Model 1 used the complete sentence to classify and predict the sentence. However, we know that in this particular scenario, only the verbs or the actions of the subject should be used to classify the data. This is because noun/subject/object do not contribute to the classification. The word problems make use of words like “John”, “Mary”, “apples”, “oranges”, etc to personify the underlying equation which is to be solved. If the training set uses name “John” for all the positive dataset class  and “Mary” for negative, then the classifier will probably classify the test problem as positive if it has “John” in its question irrespective of the nature of question. 
+		To solve this problem, we added filtering step to our model 1. This filtering step will use the POS tagging to extract the verbs from each problem in the training dataset. We train our classifier based on the verbs and the sequence of verbs(1-3 gram) to classify into positive or negative. 
+	Model 3 - A brute force approach:
+		Consider the following example:
+			“Jack had 3 pencils.  Jill gave 1 pencil to Jack.  Jack gave 2 pencils to Mary. How many pencils did Jack have now?” (Positive)
+		In this example, the above approach will give result in incorrect output. This is because, the model is not smart enough to handle to different operations in one single problem. It will either add or subtract the cardinals but not both. To improve accuracy, we now try to make a well informed model but with extremely simple brute force approach.
+	Model 4 - Recursive brute force approach:
+		As previous model is a brute force model, it will fail for those question whose verbs are totally new to the classifier. Also, it expects every verb to be either of the 4 verb categories - assignment, transfer positive, transfer negative or final.
+		Thus, this model will consider the entire statement creating a trigram feature vector while training for the above 4 categories. Then, based on the test input sentence, it will find which category this sentence belong and create its corresponding equation form.
+
+5. Evaluation setup
+
+		We have used the dataset provided by Professor. We then divided the dataset as per the classes required by our models. 
+	The evaluation measure that we used is the number of problems the model was able to predict and solve correctly.
+	Each model has it’s own pros and cons. However, the accuracy is more in model 4. 
+	Models 1 - 3 restrict the kind of problems that the system can solve. Therefore, if the test dataset conforms to these restrictions, these models will work fine and will be able to solve almost all the problems if correctly predicted. However, model 4 tries to get rid of these  restrictions.
+
+6. Key Results
+
+	insert table from report
+
+	Model 1 and Model 2 behave poorly because they simply classify the problems into positive or negative and accordingly add or subtract all the cardinals present in the problem. This prevents the model from solving equations that involve mixed operations. 
+	On the other hand, Model 3 supports at most 2 mixed operations or one addition/subtraction. This is because the model is a brute force approach built on three variables. Model 4 overcomes all these limitations, by recursively applying brute force to allow multiple mixed operations.
+	However, all four models, have one major drawback and that is they fail to separate important and unnecessary cardinals. The models will give inaccurate answer due to addition or subtraction of extra information(unnecessary cardinal). If the unnecessary cardinal is expressed in words, then this will no more be an issue.
+
+7. Analysis:
+
+	All results of a model are matched against the correct results of the word problems. Once we found out the problem for which it was failing, we used to analyze the reason for it in a classical way i.e. by using print statements in the program and then come to conclusion
+
+	Model 1 - Logistic Regression and POS tagging : 
+		Limitation:
+			Used complete sentence to train classifier and predict the test data
+		Reason:
+			Model 1 used the complete sentence to classify and predict the sentence. However, we know that in this particular scenario, only the verbs or the actions of the subject should be used to classify the data. This is because noun/subject/object do not contribute to the classification. The word problems make use of words like “John”, “Mary”, “apples”, “oranges”, etc to personify the underlying equation which is to be solved. If the training set uses name “John” for all the positive dataset class  and “Mary” for negative, then the classifier will probably classify the test problem as positive if it has “John” in its question irrespective of the nature of question. 
+
+	Model 2 - Slight variation in Model 1:
+		Limitation:
+			The approach used in Model 1 and Model 2 performs sufficiently good for basic problems. However, it fails majorly because of using cardinals which are nothing but garbage for solution. Secondly, it doesn’t support two different operations in one problem 
+		Reason:
+			the model is not smart enough to handle to different operations in one single problem. It will either add or subtract the cardinals but not both.
+		
+		Working example for model 1 and model 2:
+			“Jack had 10 apples and gave 5 apples to Jill. How many apples did Jack have now?”(Negative)
+			Filtering step will give --> ‘had’, ‘gave’, ‘had, gave’ : Negative
+
+		Failure example for model 1 and model 2:
+			“Jack had 3 pencils.  Jill gave 1 pencil to Jack.  Jack gave 2 pencils to Mary. How many pencils did Jack have now?” (Positive)
+
+
+	Model 3 - A brute force approach:
+
+		Limitation:
+			Only works for problems with two sentences(3 cardinals at most).
+			Gives poor performance.
+		
+		Reason:
+			As previous model is a brute force model, it will fail for those question whose verbs are totally new to the classifier. Also, it expects every verb to be either of the 3 verb categories - assignment, transfer positive or transfer negative.
+		
+		Working Example:
+			“Jessica had 10 pencils and she gave 5 to Rahul. How many does she have now”
+				===> [(‘had’, ‘VBD’, -7), (‘10’, ‘CD’, 10.0), (‘pencils’, ‘NNS’, ‘-5’), (‘gave’, ‘VBD’, -7), (‘5’, ‘CD’, 5.0), (‘does’,  ‘VBZ’, -7), (‘have’, ‘VBZ’, -7) ] 
+				===> Since ‘had’ is classified as ‘assign’ and ‘gave’ is classified as ‘transfer negative’, it will do ===> 10 +(-5) = 5
+
+		Failure Example:
+			“Jessica had 10 pencils. She gave 5 to Rahul. She gave 2 to Jen. How many does she have now”
+			As we are operating same operation twice this will be failure for this example.
+
+	Model 4 - Recursive brute force approach:
+		Limitation:
+			This model does not support the sentences which contains two cardinal values for a single action.
+			Miscalculates for sentences which involve two variables with cardinal values but equation is linear variable.
+
+		Reason:
+			POS tagging is enabled on assumption of verb and cardinal relations in one to one mapping instead of one to many mapping  in case of conjuctions
+			As underlying model assumes linear variable, model gets confused in selecting a correct variable of operation if the second variable is introduced in word problem.
+
+		Working Example:
+			“Jessica had 10 pencils. She gave 5 to Rahul. She gave 2 to Jen. How many does she have now”
+				===> [(‘had’, ‘VBD’, assign), (‘10’, ‘CD’, 10.0), (‘pencils’, ‘NNS’, ‘-5’), (‘gave’, ‘VBD’, transfer negative), (‘5’, ‘CD’, 5.0), (‘gave’, ‘VBD’, transfer negative), (‘2’, ‘CD’, 2.0), (‘does’,  ‘VBZ’, assign), (‘have’, ‘VBZ’, assign) ] 
+				===> ‘had’ is predicted as ‘assign’ and ‘gave’ is predicted as ‘transfer negative’ by classifier. Since ‘had’ is classified as ‘assign’ and ‘gave’ is classified as ‘transfer negative’, it will do ===> 10 +(-5) +(-2) = 3
+
+		Failure Example:
+			Sam has 2 dogs. One dog ate 300 gms of dog food and other dog ate 200 gms of dog food. How many grams of dog food is consumed?
+
+8. Conclusions:
+
+	Using the basic understanding of classifiers and NLP POS tagging, we were able to build four models with incremental approach. Although each model suffers from its own limitations, the model 4 can be further improved to increase accuracy. We can also extend these models to support more operations like multiplication and division. We worked with very limited data as our focus was on learning the NLP POS Tagging and its applications in our model. With increased and correctly classified learning sets, we can make our classifiers work even better. The variance and bias are also applicable in this scenario but can be handled.

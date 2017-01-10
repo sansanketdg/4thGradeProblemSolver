@@ -1,0 +1,2 @@
+[('went', 'VBD', '0'), ('4', 'CD', 4.0), ('games', 'NNS', -5)]	[('went', 'VBD', 't+'), ('9', 'CD', 9.0), ('games', 'NNS', -5)]	[('games', 'NNS', -5), ('did', 'VBD', 't+'), ('go', 'VB', 't+')]	
+[('found', 'VBD', 't+'), ('9', 'CD', 9.0), ('seashells', 'NNS', -5), ('found', 'VBD', 't+'), ('7', 'CD', 7.0), ('seashells', 'NNS', -5), ('found', 'VBD', 't+'), ('5', 'CD', 5.0), ('seashells', 'NNS', -5)]	[('seashells', 'NNS', -5), ('did', 'VBD', 't+'), ('find', 'VB', 't+')]	

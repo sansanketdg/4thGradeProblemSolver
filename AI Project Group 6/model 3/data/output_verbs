@@ -1,0 +1,149 @@
+['found']	0
+['were']	0
+['played']	0
+['are']	0
+['had']	0
+['were']	0
+['went']	0
+['has']	0
+['has']	0
+['are']	0
+['had']	0
+['had']	0
+['served']	0
+['are']	0
+['found']	0
+['grew']	0
+['picked']	0
+['found']	0
+['had']	0
+['has']	0
+['had']	0
+['served']	0
+['picked']	0
+['are']	0
+['grew']	0
+['has']	0
+['found']	0
+['grew']	0
+['are']	0
+['picked']	0
+['has']	0
+['had']	0
+['found']	0
+['has']	0
+['picked', 'picked']	0
+['went']	0
+['are']	0
+['had']	0
+['grew']	0
+['are']	0
+['had']	0
+['are']	0
+['has']	0
+['has']	0
+['grew']	0
+['went']	0
+['found']	0
+['are']	0
+['has']	0
+['picked']	0
+['grew']	0
+['had']	0
+['has']	1
+['are']	1
+['are', 'finished', 'be']	1
+['are']	1
+['are']	1
+['has']	1
+['has']	1
+['has']	1
+['are', 'finished', 'be']	1
+['has']	1
+['are']	1
+['had']	1
+['are']	1
+['washed', 'has']	1
+['are']	1
+['has']	1
+['are']	1
+['let', 'grow', 'are']	1
+['used']	1
+['painted', 'using']	1
+['stacked']	t+
+[]	t+
+['went', 'picked']	t+
+['cut']	t+
+['went']	t+
+['has']	t+
+['do', 'have']	t+
+[]	t+
+['gave']	t+
+[]	t+
+['placed']	t+
+['grew']	t+
+['did', 'grow']	t+
+['picked']	t+
+['found', 'found']	t+
+['has', 'has']	t+
+['gave', 'gave']	t+
+['served']	t+
+['picked', 'picked']	t+
+[]	t+
+['grew', 'grew']	t+
+['has']	t+
+['found']	t+
+['grew']	t+
+['placed']	t+
+['picked']	t+
+['has']	t+
+['gave']	t+
+['found']	t+
+['has']	t+
+['picked', 'picked']	t+
+['went']	t+
+['placed']	t+
+['gave']	t+
+['grew']	t+
+[]	t+
+['gave']	t+
+['placed']	t+
+['has']	t+
+['has']	t+
+['grew']	t+
+['went']	t+
+['found']	t+
+[]	t+
+['gave']	t-
+['put']	t-
+['were', 'defeated']	t-
+['were']	t-
+['gave']	t-
+['gave']	t-
+['gave']	t-
+['were', 'broken']	t-
+['lost']	t-
+['borrowed']	t-
+['gave']	t-
+['gave']	t-
+['bought']	t-
+['gave']	t-
+['spent']	t-
+['gave']	t-
+['spent']	t-
+['bought']	t-
+['gave']	t-
+['bought']	t-
+['gave']	t-
+['spent']	t-
+['ate']	t-
+['ate']	t-
+['had', 'cut', 'were', 'damaged']	t-
+['borrowed']	t-
+['were', 'served']	t-
+['took']	t-
+['lost']	t-
+['ate']	t-
+['sold']	t-
+['took']	t-
+['had', 'cut', 'were', 'damaged']	t-

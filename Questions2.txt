@@ -1,0 +1,12 @@
+There are 22 walnut trees currently in the park . 55 walnut trees are present in the park after planting. How many walnut trees did the workers plant today ?
+33
+X = 55 - 22
+Mike had 34 peaches at his roadside fruit dish . Mike has 86 peaches now after picking up. how many did Mike pick ?
+52
+X = 86 - 34
+There were 16 roses in the vase .6 roses are left in the vase after the cut . How many roses were cut ?
+10
+X = 16 - 6
+There are 4 walnut trees currently in the park . Park workers will plant 6 walnut trees today . How many walnut trees will the park have when the workers are finished ?
+10
+X = 4 + 6

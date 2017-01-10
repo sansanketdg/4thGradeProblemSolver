@@ -1,0 +1,9 @@
+Joan found 70 seashells on the beach . Joan gave Sam 27 seashell . How many seashells did Joan give to Sam ?
+43
+X = 70 - 27
+Sara played 12 basketball games this year . Sara was defeated during 4 games . How many games did Sara win ?
+8
+X = 12 - 4
+Kunal bought 5 lamborghinis. Kunal destroyed 2 of the lamborghinis. How many lamborghinis are left with kunal ?
+3
+X = 5 - 2

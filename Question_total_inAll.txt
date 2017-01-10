@@ -1,0 +1,12 @@
+Joan went to 4 football games this year . Joan went to 9 games last year . How many football games did Joan go to in all ?
+13
+X = 4 + 9
+Tom has 9 yellow balloons. Sara has 8 yellow balloons. How many yellow balloons do they have in total ?
+17
+X = 9 + 8
+Sam had 9 dimes in his bank . His dad gave him 7 dimes . How many dimes does Sam have now ?
+16
+X = 9 + 7
+Alyssa gave 7 puppies to her friends . Alyssa now has 5 puppies . How many puppies did she have to start with ?
+12
+X = 7 + 5
